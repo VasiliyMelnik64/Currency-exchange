@@ -1,10 +1,10 @@
-import { FormattedMessage } from 'react-intl';
+import { CurrencyExchangeWidget } from 'widgets/currency/ui';
 
 const HomePage = () => {
   return (
-    <div>
-      <FormattedMessage id='logo.title' />
-    </div>
+    <>
+      <CurrencyExchangeWidget />
+    </>
   );
 };
 
