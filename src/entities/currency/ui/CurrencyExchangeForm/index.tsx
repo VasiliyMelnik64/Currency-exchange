@@ -3,12 +3,12 @@ import { Controller, useForm } from 'react-hook-form';
 import { Button, Input } from 'shared/ui/basic';
 import { FormControl, Box } from 'shared/ui/basic/mui';
 import { FormattedText, FormattedTitle, Icon } from 'shared/ui';
+import { useCurrencyData } from '../../lib/hooks';
 
 const StyledForm = styled.form`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 25px;
 `;
 
 const StyledTitle = styled(Box)`
@@ -16,6 +16,7 @@ const StyledTitle = styled(Box)`
 `;
 
 export const CurrencyExchangeForm = () => {
+  const { currency, onRequestCurrency } = useCurrencyData();
   const theme = useTheme();
   const {
     handleSubmit,
@@ -26,7 +27,7 @@ export const CurrencyExchangeForm = () => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data, errors);
+    onRequestCurrency(data);
   };
 
   const handleChangeValues = () => {
@@ -43,11 +44,12 @@ export const CurrencyExchangeForm = () => {
       </StyledTitle>
 
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <FormControl>
+        <FormControl style={{ gridColumn: '1/3' }}>
           <Controller
             name='amount'
             control={control}
             rules={{ required: 'true' }}
+            defaultValue={currency.amount}
             render={({ field: { onChange, value = '' } }) => (
               <Input
                 onChange={onChange}
@@ -60,11 +62,12 @@ export const CurrencyExchangeForm = () => {
             )}
           />
         </FormControl>
-        <FormControl>
+        <FormControl style={{ gridColumn: '3/6' }}>
           <Controller
             name='from'
             control={control}
             rules={{ required: 'true' }}
+            defaultValue={currency.from}
             render={({ field: { onChange, value = '', ref } }) => (
               <Input
                 onChange={onChange}
@@ -82,16 +85,20 @@ export const CurrencyExchangeForm = () => {
           type='button'
           style={{
             backgroundColor: theme.colors.light,
+            width: '10%',
+            justifySelf: 'center',
+            gridColumn: '6/7',
           }}
           onClick={handleChangeValues}
         >
           <Icon name='compareArrows' fill={theme.colors.primary} />
         </Button>
 
-        <FormControl>
+        <FormControl style={{ gridColumn: '7/10' }}>
           <Controller
             name='to'
             control={control}
+            defaultValue={currency.to}
             rules={{ required: 'true' }}
             render={({ field: { onChange, value = '' } }) => (
               <Input
@@ -108,6 +115,7 @@ export const CurrencyExchangeForm = () => {
           variant='contained'
           style={{
             backgroundColor: theme.colors.primary,
+            gridColumn: '10/12',
           }}
           type='submit'
         >

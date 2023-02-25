@@ -1,1 +1,1 @@
-export * from './types';
+export { createInstance } from './common/config';

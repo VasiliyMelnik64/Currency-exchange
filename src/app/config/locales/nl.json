@@ -1,4 +1,6 @@
 {
+  "converted.currency.rate": "1 {fromCurrency} = {toRate} {toCurrency}",
+  "converted.currency.result": "{amount} {currency} {sign}",
   "logo.title": "Valutawissel",
   "navigation.main.tab": "Valutacalculator",
   "navigation.history.tab": "Conversiegeschiedenis bekijken",

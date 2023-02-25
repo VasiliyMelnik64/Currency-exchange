@@ -1,4 +1,6 @@
 {
+  "converted.currency.rate": "1 {fromCurrency} = {toRate} {toCurrency}",
+  "converted.currency.result": "{amount} {currency} {sign} ",
   "logo.title.currency": "Currency",
   "logo.title.exchange": "Exchange",
   "navigation.main.tab": "Currency converter",

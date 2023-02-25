@@ -5,14 +5,17 @@ export const textMixin = css`
     capitalized,
     bold,
     italic,
+    color,
   }: {
     capitalized?: boolean;
     bold?: boolean;
     italic?: boolean;
+    color?: string;
   }) => ({
     textDecoration: capitalized ? 'capitalized' : 'none',
     fontStyle: italic ? 'italic' : 'normal',
-    fontWeight: bold ? 'bold!important' : 'normal',
+    fontWeight: bold ? 'bold!important' : '300!important',
+    color: color || 'inherit',
   })}
 
   vertical-align: super;

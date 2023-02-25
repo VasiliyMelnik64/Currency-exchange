@@ -13,6 +13,7 @@ type FormattedMessageProps = {
   children?: any;
   testId?: string;
   privateData?: boolean;
+  color?: string;
 };
 
 type FormattedDateProps = {
@@ -42,35 +43,27 @@ export const FormattedMessage = ({
 };
 
 export const FormattedTitle = ({
-  capitalized,
+  bold = true,
   ...props
 }: FormattedMessageProps) => {
   return (
-    <StyledTitle capitalized={capitalized}>
+    <StyledTitle bold={bold} {...props}>
       <FormattedMessage {...props} />
     </StyledTitle>
   );
 };
 
-export const FormattedSubtitle = ({
-  capitalized,
-  ...props
-}: FormattedMessageProps) => {
+export const FormattedSubtitle = ({ ...props }: FormattedMessageProps) => {
   return (
-    <StyledSubtitle capitalized={capitalized}>
+    <StyledSubtitle {...props}>
       <FormattedMessage {...props} />
     </StyledSubtitle>
   );
 };
 
-export const FormattedText = ({
-  capitalized,
-  bold,
-  italic,
-  ...props
-}: FormattedMessageProps) => {
+export const FormattedText = ({ ...props }: FormattedMessageProps) => {
   return (
-    <StyledText bold={bold} capitalized={capitalized} italic={italic}>
+    <StyledText {...props}>
       <FormattedMessage {...props} />
     </StyledText>
   );
