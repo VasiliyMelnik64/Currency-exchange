@@ -8,3 +8,5 @@ export const historyTableHead = [
   'table.title.date',
   'table.title.exchangeRate',
 ];
+
+export const historyRatingTableHead = ['table.title.statistics', ''];

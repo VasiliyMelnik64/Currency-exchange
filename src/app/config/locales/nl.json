@@ -1,10 +1,11 @@
 {
   "converted.currency.rate": "1 {fromCurrency} = {toRate} {toCurrency}",
   "converted.currency.result": "{amount} {currency} {sign}",
-  "logo.title": "Valutawissel",
+  "logo.title.currency": "Valutawissel",
+  "logo.title.exchange": "Wisselkoers",
   "navigation.main.tab": "Valutacalculator",
   "navigation.history.tab": "Conversiegeschiedenis bekijken",
-  "navigation.history.logout": "Uitloggen",
+  "navigation.logout": "Uitloggen",
   "home.tab.title": "Valutawissel",
   "home.exchange.history": "Wisselgeschiedenis",
   "home.title": "Ik wil converteren",
@@ -28,5 +29,7 @@
   "table.title.view": "Bekijken",
   "table.title.delete": "Verwijderen uit geschiedenisy",
   "table.row.event.label": "Zet een bedrag van 100 om van 1 naar 2",
-  "error.message.common": "Er is iets fout gegaan"
+  "error.message.common": "Er is iets fout gegaan",
+  "date": "{date}",
+  "rate": "{rate}"
 }

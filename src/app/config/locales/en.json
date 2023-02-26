@@ -29,5 +29,7 @@
   "table.title.view": "View",
   "table.title.delete": "Delete from history",
   "table.row.event.label": "Convert an amount of {amount} from {currency1} to {currency2}",
-  "error.message.common": "Something went wrong"
+  "error.message.common": "Something went wrong",
+  "date": "{date}",
+  "rate": "{rate}"
 }

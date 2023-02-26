@@ -8,6 +8,12 @@ export type Currency = {
   date: Date;
 };
 
+export type CurrencyHistoryStatisticsType = {
+  lowest: number;
+  highest: number;
+  average: number | string;
+};
+
 export type DatesRangeType = {
   start_date: string;
   end_date: string;
@@ -17,7 +23,7 @@ export type CurrencyHistoryParamsType = {
   daysAmount: CurrencyDaysAmountType;
   base: string;
 };
-type CurrencyHistoryItemType = {
+export type CurrencyHistoryItemType = {
   date: string;
   rate: string;
 };

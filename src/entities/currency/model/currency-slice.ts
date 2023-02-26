@@ -4,6 +4,8 @@ import {
   CurrecncyStateType,
   CurrecncySliceReducers,
   CurrencyHistoryPayloadDataType,
+  CurrencyHistoryStatisticsType,
+  CurrencyHistoryItemType,
 } from 'entities/currency/lib';
 
 import { formatDateForHistoryTable } from '../lib';
@@ -68,6 +70,31 @@ export const currencyLoadingSelector = (state: any): boolean =>
 export const currencyHistoryRatesSelector = (
   state: any
 ): CurrencyHistoryPayloadDataType => state.currency.currencyHistory;
+
+export const currencyHistoryStatisticsSelector = (
+  state: any
+): CurrencyHistoryStatisticsType => ({
+  highest: Math.max(
+    ...state.currency.currencyHistory.map(
+      (item: CurrencyHistoryItemType) => +item.rate
+    )
+  ),
+  lowest: Math.min(
+    ...state.currency.currencyHistory.map(
+      (item: CurrencyHistoryItemType) => +item.rate
+    )
+  ),
+  average: (
+    state.currency.currencyHistory.reduce(
+      (sum: number, item: CurrencyHistoryItemType): number => {
+        sum += +item.rate;
+
+        return sum;
+      },
+      0
+    ) / state.currency.currencyHistory.length
+  ).toFixed(6),
+});
 
 export const {
   getCurrencyHistoryRequest,

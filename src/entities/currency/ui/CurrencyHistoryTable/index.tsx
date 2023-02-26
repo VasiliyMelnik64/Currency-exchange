@@ -25,7 +25,7 @@ export const CurrencyHistoryTable = () => {
       <CurrencyTableControls />
       <TableContainer
         component={Paper}
-        sx={{ marginTop: '20px', maxHeight: 270, boxShadow: 4 }}
+        sx={{ marginTop: '20px', maxHeight: 290, boxShadow: 4 }}
       >
         <Table stickyHeader>
           <TableHead>
@@ -41,9 +41,11 @@ export const CurrencyHistoryTable = () => {
             {currencyHistoryData.map((row) => (
               <TableRow key={row.date}>
                 <TableCell component='th' scope='row'>
-                  {row.date}
+                  <FormattedText label='date' values={{ date: row.date }} />
                 </TableCell>
-                <TableCell>{row.rate}</TableCell>
+                <TableCell>
+                  <FormattedText label='rate' values={{ rate: row.rate }} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

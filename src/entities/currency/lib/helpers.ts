@@ -1,4 +1,8 @@
-import { CurrencyDaysAmountType, DatesRangeType } from './types';
+import {
+  CurrencyDaysAmountType,
+  DatesRangeType,
+  CurrencyHistoryItemType,
+} from './types';
 
 export const getDatesRange = (
   daysAmount: CurrencyDaysAmountType
