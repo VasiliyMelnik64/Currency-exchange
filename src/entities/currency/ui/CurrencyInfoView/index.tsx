@@ -14,8 +14,8 @@ export const CurrencyInfoView = () => {
             label='converted.currency.result'
             bold={false}
             values={{
-              amount: currency.amount,
-              currency: currency.from,
+              amount: currency?.amount,
+              currency: currency?.from,
               sign: '=',
             }}
           />
@@ -24,8 +24,8 @@ export const CurrencyInfoView = () => {
             bold={false}
             color={theme.colors.accent}
             values={{
-              amount: currency.result,
-              currency: currency.to,
+              amount: currency?.result,
+              currency: currency?.to,
               sign: '',
             }}
           />
@@ -34,9 +34,9 @@ export const CurrencyInfoView = () => {
           <FormattedText
             label='converted.currency.rate'
             values={{
-              fromCurrency: currency.from,
-              toCurrency: currency.to,
-              toRate: currency.rate,
+              fromCurrency: currency?.from,
+              toCurrency: currency?.to,
+              toRate: currency?.rate,
             }}
           />
         </Box>
@@ -44,9 +44,9 @@ export const CurrencyInfoView = () => {
           <FormattedText
             label='converted.currency.rate'
             values={{
-              fromCurrency: currency.to,
-              toCurrency: currency.from,
-              toRate: currency.reverseRate,
+              fromCurrency: currency?.to,
+              toCurrency: currency?.from,
+              toRate: currency?.reverseRate,
             }}
           />
         </Box>

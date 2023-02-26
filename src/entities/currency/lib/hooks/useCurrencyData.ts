@@ -4,19 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   getCurrencyRequest,
+  getCurrencyHistoryRequest,
   deleteCurrency,
   exchangeRateSelector,
   lastExchangeRateSelector,
-  PayloadRequestType,
 } from '../../model/currency-slice';
 
-import { Currency } from '../types';
+import {
+  Currency,
+  PayloadRequestType,
+  CurrencyHistoryParamsType,
+} from '../types';
 
 type CurrencyData = {
   currency: Currency;
   currencies: Currency[];
   onRequestCurrency: (params: PayloadRequestType) => void;
   onDeleteCurrency: (id: number) => () => void;
+  onRequestCurrencyHistory: (params: CurrencyHistoryParamsType) => void;
 };
 
 export const useCurrencyData = (
@@ -41,11 +46,24 @@ export const useCurrencyData = (
     [dispatch]
   );
 
+  const onRequestCurrencyHistory = useCallback(
+    (params: CurrencyHistoryParamsType): void => {
+      dispatch(getCurrencyHistoryRequest(params));
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
     if (!currencies?.length && !!shouldRequestInitially) {
       onRequestCurrency({ params: {} });
     }
   }, [currencies?.length, onRequestCurrency, shouldRequestInitially]);
 
-  return { currency, currencies, onRequestCurrency, onDeleteCurrency };
+  return {
+    currency,
+    currencies,
+    onRequestCurrency,
+    onRequestCurrencyHistory,
+    onDeleteCurrency,
+  };
 };

@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { Controller, useForm } from 'react-hook-form';
 import { Button, Input } from 'shared/ui/basic';
@@ -30,12 +31,12 @@ export const CurrencyExchangeForm = () => {
     onRequestCurrency(data);
   };
 
-  const handleChangeValues = () => {
+  const handleChangeValues = useCallback(() => {
     const values = getValues();
 
     setValue('from', values.to);
     setValue('to', values.from);
-  };
+  }, [getValues, setValue]);
 
   return (
     <>
@@ -49,7 +50,7 @@ export const CurrencyExchangeForm = () => {
             name='amount'
             control={control}
             rules={{ required: 'true' }}
-            defaultValue={currency.amount}
+            defaultValue={currency?.amount}
             render={({ field: { onChange, value = '' } }) => (
               <Input
                 onChange={onChange}
@@ -67,7 +68,7 @@ export const CurrencyExchangeForm = () => {
             name='from'
             control={control}
             rules={{ required: 'true' }}
-            defaultValue={currency.from}
+            defaultValue={currency?.from}
             render={({ field: { onChange, value = '', ref } }) => (
               <Input
                 onChange={onChange}
@@ -98,7 +99,7 @@ export const CurrencyExchangeForm = () => {
           <Controller
             name='to'
             control={control}
-            defaultValue={currency.to}
+            defaultValue={currency?.to}
             rules={{ required: 'true' }}
             render={({ field: { onChange, value = '' } }) => (
               <Input

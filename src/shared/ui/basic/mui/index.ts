@@ -1,4 +1,5 @@
 export {
+  InputLabel,
   Button,
   type ButtonProps,
   Box,
@@ -17,4 +18,10 @@ export {
   Select,
   type SelectChangeEvent,
   type SelectProps,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  TableHead,
+  TableContainer,
 } from '@mui/material';

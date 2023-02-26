@@ -1,57 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Currency } from 'entities/currency/lib';
+import {
+  Currency,
+  CurrecncyStateType,
+  CurrecncySliceReducers,
+} from 'entities/currency/lib';
 
-export type PayloadRequestType = {
-  params: {
-    [key: string]: string | number;
-  };
-};
-export type PayloadSuccessType = Currency;
-export type PayloadErrorType = unknown | Error | null;
-export type PayloadDeleteType = number;
-
-type StateType = {
-  data: Currency[];
-  error: PayloadErrorType;
-  loading: boolean;
-};
-
-type ActionSuccessType = {
-  type: string;
-  payload: Currency;
-};
-
-export type ActionErrorType = {
-  type: string;
-  payload: PayloadErrorType;
-};
-
-type ActionRequestType = {
-  type: string;
-  payload: PayloadRequestType;
-};
-
-type ActionDeleteType = {
-  type: string;
-  payload: string | number;
-};
-
-export type ActionType =
-  | ActionSuccessType
-  | ActionErrorType
-  | ActionRequestType;
-
-type SliceReducers = {
-  getCurrencyRequest: (state: StateType, action: ActionRequestType) => void;
-  getCurrencySuccess: (state: StateType, action: ActionSuccessType) => void;
-  getCurrencyError: (state: StateType, action: ActionErrorType) => void;
-  deleteCurrency: (state: StateType, action: ActionDeleteType) => void;
-};
-
-export const currencySlice = createSlice<StateType, SliceReducers>({
+export const currencySlice = createSlice<
+  CurrecncyStateType,
+  CurrecncySliceReducers
+>({
   name: 'currency',
   initialState: {
     data: [],
+    currencyHistory: [],
     error: null,
     loading: false,
   },
@@ -59,6 +20,24 @@ export const currencySlice = createSlice<StateType, SliceReducers>({
     getCurrencyRequest: (state) => {
       state.loading = true;
       state.error = null;
+    },
+    getCurrencyHistoryRequest: (state) => {
+      state.loading = false;
+      state.error = null;
+    },
+    getCurrencyHistorySuccess: (state, action) => {
+      state.loading = false;
+      const fromCurrency = state.data.at(-1)?.to;
+
+      if (fromCurrency) {
+        state.currencyHistory = Object.entries(action.payload).map(
+          ([key, value]: [string, { [key: string]: string }]) => ({
+            date: key,
+            rate: value[fromCurrency],
+          }),
+          []
+        );
+      }
     },
     getCurrencySuccess: (state, action) => {
       state.data.push(action.payload);
@@ -83,7 +62,12 @@ export const lastExchangeRateSelector = (state: any): Currency =>
 export const currencyLoadingSelector = (state: any): boolean =>
   state.currency.loading;
 
+export const currencyHistoryRatesSelector = (state: any): boolean =>
+  state.currency.loading;
+
 export const {
+  getCurrencyHistoryRequest,
+  getCurrencyHistorySuccess,
   getCurrencyRequest,
   getCurrencySuccess,
   getCurrencyError,
