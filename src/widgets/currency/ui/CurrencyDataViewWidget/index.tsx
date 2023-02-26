@@ -7,7 +7,7 @@ export const CurrencyDataViewWidget = () => {
   return (
     <Box mt={3}>
       <FormattedSubtitle bold label='home.exchange.history' />
-      <Box display='flex' mt={3}>
+      <Box display='flex' mt={3} gap={5}>
         <CurrencyHistoryTable />
         <CurrencyRatingTable />
       </Box>

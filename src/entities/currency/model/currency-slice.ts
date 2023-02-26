@@ -3,7 +3,10 @@ import {
   Currency,
   CurrecncyStateType,
   CurrecncySliceReducers,
+  CurrencyHistoryPayloadDataType,
 } from 'entities/currency/lib';
+
+import { formatDateForHistoryTable } from '../lib';
 
 export const currencySlice = createSlice<
   CurrecncyStateType,
@@ -32,7 +35,7 @@ export const currencySlice = createSlice<
       if (fromCurrency) {
         state.currencyHistory = Object.entries(action.payload).map(
           ([key, value]: [string, { [key: string]: string }]) => ({
-            date: key,
+            date: formatDateForHistoryTable(key),
             rate: value[fromCurrency],
           }),
           []
@@ -62,8 +65,9 @@ export const lastExchangeRateSelector = (state: any): Currency =>
 export const currencyLoadingSelector = (state: any): boolean =>
   state.currency.loading;
 
-export const currencyHistoryRatesSelector = (state: any): boolean =>
-  state.currency.loading;
+export const currencyHistoryRatesSelector = (
+  state: any
+): CurrencyHistoryPayloadDataType => state.currency.currencyHistory;
 
 export const {
   getCurrencyHistoryRequest,

@@ -16,3 +16,11 @@ export const getDatesRange = (
     end_date,
   };
 };
+
+export const formatDateForHistoryTable = (date: string): string => {
+  if (!date) {
+    return '';
+  }
+
+  return date.split('-').reverse().join('/');
+};

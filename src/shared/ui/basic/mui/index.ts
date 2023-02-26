@@ -24,4 +24,5 @@ export {
   TableRow,
   TableHead,
   TableContainer,
+  Paper,
 } from '@mui/material';
