@@ -1,3 +1,3 @@
-export * from './Header';
-export * from './Logo';
-export * from './Navigation';
+export * from './header';
+export * from './logo';
+export * from './navigation';

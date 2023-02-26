@@ -1,2 +1,2 @@
-export { SiteTabTitle } from './SiteTabTitle';
-export { SiteFavIcon } from './SiteFavIcon';
+export { SiteTabTitle } from './site-tab-title';
+export { SiteFavIcon } from './site-fav-icon';

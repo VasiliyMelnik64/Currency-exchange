@@ -1,1 +1,1 @@
-export * from './useCurrencyData';
+export * from './use-currency-data';

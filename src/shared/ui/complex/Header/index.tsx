@@ -1,7 +1,7 @@
 import { FormattedText } from 'shared/ui/basic';
 import styled, { useTheme } from 'styled-components';
-import { Logo } from '../Logo';
-import { Navigation } from '../Navigation';
+import { Logo } from '../logo';
+import { Navigation } from '../navigation';
 import { Button } from '../../basic/button';
 import { Box } from '../../basic/mui';
 

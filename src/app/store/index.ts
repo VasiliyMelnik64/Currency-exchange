@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import storage from 'redux-persist/lib/storage';
 
 import { currencyModel } from 'entities/currency';
-import { rootSaga } from './rootSaga';
+import { rootSaga } from './root-saga';
 
 const persistConfig = {
   key: 'root',

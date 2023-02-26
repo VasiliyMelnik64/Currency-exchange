@@ -4,8 +4,8 @@ import { currencyHistoryViewVariantSelector } from 'entities/currency/model';
 import { CurrencyHistoryViewVariant } from 'entities/currency/lib';
 import { Box } from 'shared/ui/basic/mui';
 
-import { CurrencyHistoryTable } from '../CurrencyHistoryTable';
-import { CurrencyHistoryChart } from '../CurrencyHistoryChart';
+import { CurrencyHistoryTable } from '../currency-history-table';
+import { CurrencyHistoryChart } from '../currency-history-chart';
 
 export const CurrencyHistoryDataView = () => {
   const currencyHistoryViewVariant = useSelector(

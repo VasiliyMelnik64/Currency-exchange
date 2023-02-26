@@ -3,8 +3,8 @@ import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { themes } from '../config/themes';
 import { GlobalStyles } from '../styles';
-import { SiteFavIcon } from '../ui/SiteFavIcon';
-import { SiteTabTitle } from '../ui/SiteTabTitle';
+import { SiteFavIcon } from '../ui/site-fav-icon';
+import { SiteTabTitle } from '../ui/site-tab-title';
 
 type Props = {
   [key: string]: any;
