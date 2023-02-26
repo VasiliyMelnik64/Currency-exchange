@@ -1,5 +1,5 @@
 export * from './CurrencyExchangeForm';
-export * from './CurrencyHistoryTable';
+export * from './CurrencyHistoryDataView';
 export * from './CurrencyInfoView';
 export * from './CurrencyRatingTable';
 export * from './CurrencyTableControls';
