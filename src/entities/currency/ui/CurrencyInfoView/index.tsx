@@ -1,11 +1,13 @@
 import { useTheme } from 'styled-components';
-import { FormattedText, FormattedTitle } from 'shared/ui';
+
+import { FormattedText, FormattedTitle, FormattedNumber } from 'shared/ui';
 import { Box } from 'shared/ui/basic/mui';
 import { useCurrencyData } from '../../lib/hooks';
 
 export const CurrencyInfoView = () => {
   const theme = useTheme();
   const { currency } = useCurrencyData();
+
   return (
     !!currency && (
       <Box borderBottom={`1px solid ${theme.colors.dark}`} padding={4}>
@@ -14,7 +16,7 @@ export const CurrencyInfoView = () => {
             label='converted.currency.result'
             bold={false}
             values={{
-              amount: currency?.amount,
+              amount: currency?.amount || 0,
               currency: currency?.from,
               sign: '=',
             }}
@@ -24,7 +26,7 @@ export const CurrencyInfoView = () => {
             bold={false}
             color={theme.colors.accent}
             values={{
-              amount: currency?.result,
+              amount: <FormattedNumber value={+currency?.result || 0} />,
               currency: currency?.to,
               sign: '',
             }}

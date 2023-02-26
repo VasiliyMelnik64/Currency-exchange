@@ -27,6 +27,10 @@ export type CurrencyHistoryItemType = {
   date: string;
   rate: string;
 };
+export type CurrencyHistoryChartItemType = {
+  name: string;
+  uv: number;
+};
 export type CurrencyDaysAmountType = string | number | undefined;
 export type PayloadRequestType = {
   params: {
@@ -37,6 +41,7 @@ export type CurrencyPayloadSuccessType = Currency;
 export type PayloadErrorType = unknown | Error | null;
 export type PayloadDeleteType = number;
 export type CurrencyHistoryPayloadDataType = CurrencyHistoryItemType[];
+export type CurrencyHistoryChartDataType = CurrencyHistoryChartItemType[];
 
 export type CurrecncyStateType = {
   data: Currency[];

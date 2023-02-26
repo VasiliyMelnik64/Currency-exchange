@@ -1,9 +1,10 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { useTheme } from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setCurrencyHistoryViewVariant } from '../../model/currency-slice';
 import { CurrencyHistoryViewVariant } from '../../lib/types';
+import { currencyHistoryViewVariantSelector } from 'entities/currency/model';
 
 import {
   Box,
@@ -17,10 +18,18 @@ import { FormattedText } from 'shared/ui';
 export const CurrencyTableRadioGroup = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
+  const currencyHistoryViewVariant = useSelector(
+    currencyHistoryViewVariantSelector
+  );
+  const [value, setValue] = useState<CurrencyHistoryViewVariant>(
+    currencyHistoryViewVariant
+  );
 
-  const handleChange = (__e: SyntheticEvent, value: string) => {
+  const handleChange = (__e: SyntheticEvent, newValue: string) => {
+    setValue(newValue as CurrencyHistoryViewVariant);
+
     dispatch(
-      setCurrencyHistoryViewVariant(value as CurrencyHistoryViewVariant)
+      setCurrencyHistoryViewVariant(newValue as CurrencyHistoryViewVariant)
     );
   };
 
@@ -28,12 +37,13 @@ export const CurrencyTableRadioGroup = () => {
     <Box flex='1' textAlign='right'>
       <FormControl>
         <RadioGroup
-          defaultValue='table'
+          defaultValue={currencyHistoryViewVariant}
           sx={{
             display: 'flex',
             flexDirection: 'row',
           }}
           onChange={handleChange}
+          value={value}
         >
           <FormControlLabel
             sx={{ margin: 0, span: { verticalAlign: 'baseline' } }}

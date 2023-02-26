@@ -7,6 +7,7 @@ import {
   CurrencyHistoryStatisticsType,
   CurrencyHistoryItemType,
   CurrencyHistoryViewVariant,
+  CurrencyHistoryChartDataType,
 } from 'entities/currency/lib';
 
 import { formatDateForHistoryTable } from '../lib';
@@ -72,9 +73,19 @@ export const lastExchangeRateSelector = (state: any): Currency =>
 export const currencyLoadingSelector = (state: any): boolean =>
   state.currency.loading;
 
-export const currencyHistoryRatesSelector = (
+export const currencyHistoryTableRatesSelector = (
   state: any
 ): CurrencyHistoryPayloadDataType => state.currency.currencyHistory;
+
+export const currencyHistoryChartRatesSelector = (
+  state: any
+): CurrencyHistoryChartDataType =>
+  state.currency.currencyHistory.map(
+    ({ date, rate }: CurrencyHistoryItemType) => ({
+      name: date.slice(0, -5),
+      uv: Number(rate),
+    })
+  );
 
 export const currencyHistoryViewVariantSelector = (
   state: any

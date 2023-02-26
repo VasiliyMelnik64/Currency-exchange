@@ -1,6 +1,6 @@
 import { useTheme } from 'styled-components';
 import { useSelector } from 'react-redux';
-import { currencyHistoryRatesSelector } from 'entities/currency/model';
+import { currencyHistoryTableRatesSelector } from 'entities/currency/model';
 import {
   Table,
   TableBody,
@@ -16,7 +16,7 @@ import { FormattedText } from 'shared/ui';
 
 export const CurrencyHistoryTable = () => {
   const theme = useTheme();
-  const currencyHistoryData = useSelector(currencyHistoryRatesSelector);
+  const currencyHistoryData = useSelector(currencyHistoryTableRatesSelector);
 
   return (
     <TableContainer
