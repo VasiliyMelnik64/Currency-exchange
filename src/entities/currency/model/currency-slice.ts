@@ -6,6 +6,7 @@ import {
   CurrencyHistoryPayloadDataType,
   CurrencyHistoryStatisticsType,
   CurrencyHistoryItemType,
+  CurrencyHistoryViewVariant,
 } from 'entities/currency/lib';
 
 import { formatDateForHistoryTable } from '../lib';
@@ -18,6 +19,7 @@ export const currencySlice = createSlice<
   initialState: {
     data: [],
     currencyHistory: [],
+    currencyHistoryViewVariant: CurrencyHistoryViewVariant.table,
     error: null,
     loading: false,
   },
@@ -52,6 +54,9 @@ export const currencySlice = createSlice<
       state.error = action.payload;
       state.loading = false;
     },
+    setCurrencyHistoryViewVariant: (state, action) => {
+      state.currencyHistoryViewVariant = action.payload;
+    },
     deleteCurrency: (state, action) => {
       state.data = state.data.filter((currency: Currency) => false);
     },
@@ -70,6 +75,10 @@ export const currencyLoadingSelector = (state: any): boolean =>
 export const currencyHistoryRatesSelector = (
   state: any
 ): CurrencyHistoryPayloadDataType => state.currency.currencyHistory;
+
+export const currencyHistoryViewVariantSelector = (
+  state: any
+): CurrencyHistoryViewVariant => state.currency.currencyHistoryViewVariant;
 
 export const currencyHistoryStatisticsSelector = (
   state: any
@@ -103,6 +112,7 @@ export const {
   getCurrencySuccess,
   getCurrencyError,
   deleteCurrency,
+  setCurrencyHistoryViewVariant,
 } = currencySlice.actions;
 
 export const { reducer: currencyReducer } = currencySlice;

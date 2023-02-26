@@ -41,6 +41,7 @@ export type CurrencyHistoryPayloadDataType = CurrencyHistoryItemType[];
 export type CurrecncyStateType = {
   data: Currency[];
   currencyHistory: CurrencyHistoryPayloadDataType;
+  currencyHistoryViewVariant: CurrencyHistoryViewVariant;
   error: PayloadErrorType;
   loading: boolean;
 };
@@ -75,6 +76,16 @@ export type ActionDeleteType = {
   payload: string | number;
 };
 
+export enum CurrencyHistoryViewVariant {
+  table = 'table',
+  chart = 'chart',
+}
+
+export type ActionSetCurrencyHistoryViewVariantType = {
+  type: string;
+  payload: CurrencyHistoryViewVariant;
+};
+
 export type CurrecncySliceReducers = {
   getCurrencyHistoryRequest: (
     state: CurrecncyStateType,
@@ -95,6 +106,10 @@ export type CurrecncySliceReducers = {
   getCurrencyError: (
     state: CurrecncyStateType,
     action: ActionErrorType
+  ) => void;
+  setCurrencyHistoryViewVariant: (
+    state: CurrecncyStateType,
+    action: ActionSetCurrencyHistoryViewVariantType
   ) => void;
   deleteCurrency: (state: CurrecncyStateType, action: ActionDeleteType) => void;
 };

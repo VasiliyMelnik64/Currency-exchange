@@ -25,4 +25,5 @@ export {
   TableHead,
   TableContainer,
   Paper,
+  FormControlLabel,
 } from '@mui/material';
