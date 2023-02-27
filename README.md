@@ -21,6 +21,8 @@ Application written in `Typescript`. The approach used as the architecture in th
 
 For normal operation in the root of the application, create a file `.env.local` and/or `env.production` and copy the contents of file `.env.example` into it
 
+Version of the `node.js` used during the development of the application - 16.14.0
+
 1. install Dependencies: run `npm i`
 2. to run **Currency Exchange**: run `npm start`
 3. tests: run `npm run test`
