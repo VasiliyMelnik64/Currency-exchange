@@ -3,7 +3,7 @@ import { Logo } from '../logo';
 import { Navigation } from '../navigation';
 import { Button } from '../../basic/button';
 import { Box } from '../../basic/mui';
-import { FormattedText } from '../../../../shared/ui/basic';
+import { FormattedText } from '../../basic';
 
 const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.light};

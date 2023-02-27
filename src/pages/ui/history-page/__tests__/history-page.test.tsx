@@ -1,4 +1,4 @@
-import { Wrapper, getInnerHTML } from '../../../../shared/lib/utils/testing';
+import { Wrapper, getInnerHTML } from '../../../../app/lib/utils/testing';
 import HistoryPage from '..';
 
 describe('HistoryPage', () => {
