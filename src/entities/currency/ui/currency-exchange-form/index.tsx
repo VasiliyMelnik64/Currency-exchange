@@ -10,6 +10,16 @@ const StyledForm = styled.form`
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 25px;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+
+    button {
+      align-self: center;
+    }
+  }
 `;
 
 export const CurrencyExchangeForm = () => {

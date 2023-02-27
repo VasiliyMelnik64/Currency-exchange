@@ -14,6 +14,20 @@ const StyledHeader = styled.header`
   box-sizing: border-box;
   gap: 50px;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+`;
+
+const LogoContainer = styled(Box)`
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
 `;
 
 export const Header = () => {
@@ -21,7 +35,7 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <Box display='flex' gap={2}>
+      <LogoContainer display='flex' gap={2}>
         <Logo />
         <Navigation
           tabs={[
@@ -29,7 +43,7 @@ export const Header = () => {
             { id: '2', href: '/history', label: 'navigation.history.tab' },
           ]}
         />
-      </Box>
+      </LogoContainer>
       <Button
         style={{
           color: theme.colors.primary,

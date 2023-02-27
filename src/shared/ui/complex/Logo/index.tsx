@@ -11,6 +11,11 @@ export const StyledIconContainer = styled(Box)`
   span {
     color: ${({ theme }) => theme.colors.dark};
   }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
 `;
 
 export const Logo = () => (
