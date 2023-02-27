@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { CurrencyTableControls } from 'entities/currency';
 import { currencyHistoryViewVariantSelector } from 'entities/currency/model';
 import { CurrencyHistoryViewVariant } from 'entities/currency/lib';
 import { Box } from 'shared/ui/basic/mui';
@@ -14,7 +13,6 @@ export const CurrencyHistoryDataView = () => {
 
   return (
     <Box flex='1'>
-      <CurrencyTableControls />
       {currencyHistoryViewVariant === CurrencyHistoryViewVariant.table && (
         <CurrencyHistoryTable />
       )}

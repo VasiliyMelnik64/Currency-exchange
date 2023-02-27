@@ -20,7 +20,7 @@ export const CurrencyRatingTable = () => {
   const statistics = useSelector(currencyHistoryStatisticsSelector);
 
   return (
-    <Box flex='1' pt={6}>
+    <Box flex='1'>
       <TableContainer
         component={Paper}
         sx={{ marginTop: '20px', maxHeight: 270, boxShadow: 4 }}

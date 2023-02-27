@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   FormattedMessage as ReactIntlFormattedMessage,
   FormattedDate as ReactIntlFormattedDate,
@@ -11,7 +12,7 @@ type FormattedMessageProps = {
   italic?: boolean;
   label?: string | null;
   values?: Record<string, any>;
-  children?: any;
+  children?: (nodes: React.ReactNode[]) => React.ReactElement | null;
   testId?: string;
   privateData?: boolean;
   color?: string;

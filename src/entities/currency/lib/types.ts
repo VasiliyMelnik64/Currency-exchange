@@ -1,4 +1,5 @@
 export type Currency = {
+  id: string;
   from: string;
   amount: number;
   to: string;
@@ -21,7 +22,7 @@ export type DatesRangeType = {
 
 export type CurrencyHistoryParamsType = {
   daysAmount: CurrencyDaysAmountType;
-  base: string;
+  base?: string;
 };
 export type CurrencyHistoryItemType = {
   date: string;

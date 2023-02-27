@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
+import { v4 as uuid } from 'uuid';
 
-import { CurrencyHistoryParamsType } from '../../lib';
+import { CurrencyHistoryParamsType, getDatesRange } from '../../lib';
 
 export const getExchangeRateFromServer = (
   response: AxiosResponse<any, any>
@@ -11,9 +12,10 @@ export const getExchangeRateFromServer = (
 
   return {
     ...query,
+    id: uuid(),
     rate: info.rate,
     reverseRate: +(query.amount / result).toFixed(6),
-    date: new Date(),
+    date: new Date().toISOString(),
     result,
   };
 };
@@ -29,20 +31,9 @@ export const getCurrencyHistoryFromServer = (
 export const sendCurrencyHistoryParamsToServer = ({
   daysAmount = 0,
   base = 'EUR',
-}: CurrencyHistoryParamsType) => {
-  const currentDate = new Date();
-  const previousDate = new Date(
-    new Date().setDate(new Date().getDate() - Number(daysAmount))
-  );
-
-  const start_date = previousDate.toISOString().replace(/T.*/, '');
-  const end_date = currentDate.toISOString().replace(/T.*/, '');
-
-  return {
-    params: {
-      start_date,
-      end_date,
-      base,
-    },
-  };
-};
+}: CurrencyHistoryParamsType) => ({
+  params: {
+    ...getDatesRange(daysAmount),
+    base,
+  },
+});

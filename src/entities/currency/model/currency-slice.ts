@@ -12,18 +12,20 @@ import {
 
 import { formatDateForHistoryTable } from '../lib';
 
+const initialState = {
+  data: [],
+  currencyHistory: [],
+  currencyHistoryViewVariant: CurrencyHistoryViewVariant.table,
+  error: null,
+  loading: false,
+};
+
 export const currencySlice = createSlice<
   CurrecncyStateType,
   CurrecncySliceReducers
 >({
   name: 'currency',
-  initialState: {
-    data: [],
-    currencyHistory: [],
-    currencyHistoryViewVariant: CurrencyHistoryViewVariant.table,
-    error: null,
-    loading: false,
-  },
+  initialState,
   reducers: {
     getCurrencyRequest: (state) => {
       state.loading = true;
@@ -59,27 +61,36 @@ export const currencySlice = createSlice<
       state.currencyHistoryViewVariant = action.payload;
     },
     deleteCurrency: (state, action) => {
-      state.data = state.data.filter((currency: Currency) => false);
+      state.data = state.data.filter(
+        (currency: Currency) => currency.id !== action.payload
+      );
+
+      if (!state.data.length) {
+        state.currencyHistory = initialState.currencyHistory;
+      }
     },
   },
 });
 
-export const exchangeRateSelector = (state: any): Currency[] =>
-  state.currency.data;
+export const exchangeRateSelector = (state: {
+  currency: CurrecncyStateType;
+}): Currency[] => state.currency.data;
 
-export const lastExchangeRateSelector = (state: any): Currency =>
-  state.currency.data.at(-1);
+export const lastExchangeRateSelector = (state: {
+  currency: CurrecncyStateType;
+}): Currency | undefined => state?.currency.data.at(-1);
 
-export const currencyLoadingSelector = (state: any): boolean =>
-  state.currency.loading;
+export const currencyLoadingSelector = (state: {
+  currency: CurrecncyStateType;
+}): boolean => state.currency.loading;
 
-export const currencyHistoryTableRatesSelector = (
-  state: any
-): CurrencyHistoryPayloadDataType => state.currency.currencyHistory;
+export const currencyHistoryTableRatesSelector = (state: {
+  currency: CurrecncyStateType;
+}): CurrencyHistoryPayloadDataType => state.currency.currencyHistory;
 
-export const currencyHistoryChartRatesSelector = (
-  state: any
-): CurrencyHistoryChartDataType =>
+export const currencyHistoryChartRatesSelector = (state: {
+  currency: CurrecncyStateType;
+}): CurrencyHistoryChartDataType =>
   state.currency.currencyHistory.map(
     ({ date, rate }: CurrencyHistoryItemType) => ({
       name: date.slice(0, -5),
@@ -87,13 +98,13 @@ export const currencyHistoryChartRatesSelector = (
     })
   );
 
-export const currencyHistoryViewVariantSelector = (
-  state: any
-): CurrencyHistoryViewVariant => state.currency.currencyHistoryViewVariant;
+export const currencyHistoryViewVariantSelector = (state: {
+  currency: CurrecncyStateType;
+}): CurrencyHistoryViewVariant => state.currency.currencyHistoryViewVariant;
 
-export const currencyHistoryStatisticsSelector = (
-  state: any
-): CurrencyHistoryStatisticsType => ({
+export const currencyHistoryStatisticsSelector = (state: {
+  currency: CurrecncyStateType;
+}): CurrencyHistoryStatisticsType => ({
   highest: Math.max(
     ...state.currency.currencyHistory.map(
       (item: CurrencyHistoryItemType) => +item.rate

@@ -31,5 +31,6 @@
   "table.row.event.label": "Convert an amount of {amount} from {currency1} to {currency2}",
   "error.message.common": "Something went wrong",
   "date": "{date}",
-  "rate": "{rate}"
+  "rate": "{rate}",
+  "no.history.data.message": "Conversion history is empty. Make your first search"
 }

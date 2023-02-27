@@ -31,5 +31,6 @@
   "table.row.event.label": "Zet een bedrag van 100 om van 1 naar 2",
   "error.message.common": "Er is iets fout gegaan",
   "date": "{date}",
-  "rate": "{rate}"
+  "rate": "{rate}",
+  "no.history.data.message": "De conversiegeschiedenis is leeg. Voer uw eerste zoekopdracht uit"
 }

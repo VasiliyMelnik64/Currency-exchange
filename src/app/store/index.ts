@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import storage from 'redux-persist/lib/storage';
 
 import { currencyModel } from 'entities/currency';
+import { errorMiddleware } from 'shared/model/middlewares';
 import { rootSaga } from './root-saga';
 
 const persistConfig = {
@@ -18,7 +19,7 @@ const reducer = {
 const sagaMiddleware = createSagaMiddleware();
 
 const reducers = persistCombineReducers(persistConfig, reducer);
-const middlewares = [sagaMiddleware];
+const middlewares = [sagaMiddleware, errorMiddleware];
 
 export const store = configureStore({
   reducer: reducers,

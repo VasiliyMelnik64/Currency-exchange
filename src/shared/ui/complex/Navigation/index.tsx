@@ -1,4 +1,3 @@
-import { SyntheticEvent, useState } from 'react';
 import styled from 'styled-components';
 import { NavLink as NavigationLink, useLocation } from 'react-router-dom';
 import { useTheme } from 'styled-components';
@@ -15,6 +14,7 @@ function a11yProps(id: number) {
 const NavLink = styled(NavigationLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.dark};
+  padding: 16px;
 
   span {
     display: block;
@@ -28,18 +28,12 @@ type Props = TabsProps & {
 export const Navigation = ({ tabs, ...props }: Props) => {
   const theme = useTheme();
   const { pathname } = useLocation();
-  const [value, setValue] = useState(Number(pathname === '/history'));
-
-  const handleChange = (__e: SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
 
   return (
     <Tabs
       {...props}
       textColor='inherit'
-      value={value}
-      onChange={handleChange}
+      value={Number(pathname === '/history')}
       TabIndicatorProps={{
         style: {
           backgroundColor: theme.colors.primary,
@@ -56,6 +50,7 @@ export const Navigation = ({ tabs, ...props }: Props) => {
           }
           sx={{
             color: theme.colors.dark,
+            padding: 0,
           }}
           {...a11yProps(+tab.id)}
         />

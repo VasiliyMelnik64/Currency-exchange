@@ -17,10 +17,10 @@ import {
 } from '../types';
 
 type CurrencyData = {
-  currency: Currency;
+  currency?: Currency;
   currencies: Currency[];
   onRequestCurrency: (params: PayloadRequestType) => void;
-  onDeleteCurrency: (id: number) => () => void;
+  onDeleteCurrency: (id: string) => () => void;
   onRequestCurrencyHistory: (params: CurrencyHistoryParamsType) => void;
 };
 
@@ -39,7 +39,7 @@ export const useCurrencyData = (
   );
 
   const onDeleteCurrency = useCallback(
-    (id: any): (() => void) =>
+    (id: string): (() => void) =>
       (): void => {
         dispatch(deleteCurrency(id));
       },

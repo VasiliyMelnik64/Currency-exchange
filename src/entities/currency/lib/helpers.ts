@@ -1,8 +1,4 @@
-import {
-  CurrencyDaysAmountType,
-  DatesRangeType,
-  CurrencyHistoryItemType,
-} from './types';
+import { CurrencyDaysAmountType, DatesRangeType } from './types';
 
 export const getDatesRange = (
   daysAmount: CurrencyDaysAmountType
@@ -27,4 +23,17 @@ export const formatDateForHistoryTable = (date: string): string => {
   }
 
   return date.split('-').reverse().join('/');
+};
+
+export const formatDateForUserSearchHistoryTable = (date: string): string => {
+  if (!date) {
+    return '';
+  }
+
+  let [datePart, timePart] = date.toString().split('T');
+
+  datePart = datePart.split('-').reverse().join('/');
+  timePart = timePart.slice(0, -8);
+
+  return `${datePart} @ ${timePart}`;
 };
