@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 import { currencyHistoryChartRatesSelector } from '../../model/currency-slice';
-import { Box } from 'shared/ui/basic/mui';
+import { Box } from '../../../../shared/ui/basic/mui';
 
 export const CurrencyHistoryChart = () => {
   const theme = useTheme();

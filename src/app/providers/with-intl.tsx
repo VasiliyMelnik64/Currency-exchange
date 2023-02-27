@@ -1,7 +1,7 @@
 import { IntlProvider } from 'react-intl';
 
-import enConfig from 'app/config/locales/en.json';
-import nlConfig from 'app/config/locales/nl.json';
+import enConfig from '../config/locales/en.json';
+import nlConfig from '../config/locales/nl.json';
 
 type TranslationsType = {
   [key: string]: any;

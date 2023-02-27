@@ -21,7 +21,7 @@ describe('Mapping functions', () => {
           },
         };
 
-        const data = getExchangeRateFromServer(testObj as AxiosResponse);
+        const data = getExchangeRateFromServer(testObj as any);
 
         expect(data.amount).toEqual(testObj.data.query.amount);
         expect(data.from).toEqual(testObj.data.query.from);

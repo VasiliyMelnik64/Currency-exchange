@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setCurrencyHistoryViewVariant } from '../../model/currency-slice';
 import { CurrencyHistoryViewVariant } from '../../lib/types';
-import { currencyHistoryViewVariantSelector } from 'entities/currency/model';
+import { currencyHistoryViewVariantSelector } from '../../../../entities/currency/model';
 
 import {
   Box,
@@ -12,8 +12,8 @@ import {
   RadioGroup,
   FormControl,
   FormControlLabel,
-} from 'shared/ui/basic/mui';
-import { FormattedText } from 'shared/ui';
+} from '../../../../shared/ui/basic/mui';
+import { FormattedText } from '../../../../shared/ui';
 
 export const CurrencyTableRadioGroup = () => {
   const theme = useTheme();

@@ -1,4 +1,4 @@
-import { Wrapper } from 'shared/lib/utils/testing';
+import { Wrapper } from '../../../../shared/lib/utils/testing';
 import HomePage from '..';
 
 describe('HomePage', () => {

@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 
-import { withProviders } from 'app/providers';
+import { withProviders } from '../../../app/providers';
 
 Enzyme.configure({ adapter: new Adapter() });
 

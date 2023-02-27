@@ -1,6 +1,6 @@
-import { useCurrencyData } from 'entities/currency/lib/hooks';
 import { useState, useCallback, useEffect } from 'react';
-import { FormattedMessage } from 'shared/ui';
+import { useCurrencyData } from '../../../../entities/currency/lib/hooks';
+import { FormattedMessage } from '../../../../shared/ui';
 import {
   Box,
   FormControl,
@@ -8,7 +8,7 @@ import {
   Select,
   SelectChangeEvent,
   InputLabel,
-} from 'shared/ui/basic/mui';
+} from '../../../../shared/ui/basic/mui';
 
 import { CurrencyDaysAmountType } from '../../lib';
 import { selectOptions } from '../../config';

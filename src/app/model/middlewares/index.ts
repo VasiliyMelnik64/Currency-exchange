@@ -1,6 +1,6 @@
-import { getCurrencyError } from 'entities/currency/model/currency-slice';
-import { ActionErrorType } from 'entities/currency/lib/types';
-import { notifications } from '../../lib/services/notification-service';
+import { getCurrencyError } from '../../../entities/currency/model/currency-slice';
+import { ActionErrorType } from '../../../entities/currency/lib/types';
+import { notifications } from '../../../shared/lib/services/notification-service';
 
 export const errorMiddleware =
   () =>

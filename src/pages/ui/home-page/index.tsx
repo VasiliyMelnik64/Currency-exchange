@@ -1,9 +1,9 @@
 import {
   CurrencyExchangeWidget,
   CurrencyDataViewWidget,
-} from 'widgets/currency/ui';
-import { Box } from 'shared/ui/basic/mui';
-import { FormattedTitle } from 'shared/ui';
+} from '../../../widgets/currency/ui';
+import { Box } from '../../../shared/ui/basic/mui';
+import { FormattedTitle } from '../../../shared/ui';
 
 import { StyledTitle } from '../styles';
 

@@ -8,7 +8,7 @@ import {
   CurrencyHistoryItemType,
   CurrencyHistoryViewVariant,
   CurrencyHistoryChartDataType,
-} from 'entities/currency/lib';
+} from '../../../entities/currency/lib';
 
 import { formatDateForHistoryTable } from '../lib';
 

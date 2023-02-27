@@ -1,4 +1,4 @@
-import { createInstance } from 'shared/api';
+import { createInstance } from '../../../shared/api';
 import {
   getExchangeRateFromServer,
   sendExchangeRateParamsToServer,

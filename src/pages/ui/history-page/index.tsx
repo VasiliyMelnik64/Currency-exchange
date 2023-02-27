@@ -1,6 +1,6 @@
-import { UserSearchHistoryTable } from 'entities/history/ui';
-import { FormattedTitle } from 'shared/ui';
-import { Box } from 'shared/ui/basic/mui';
+import { UserSearchHistoryTable } from '../../../entities/history/ui';
+import { FormattedTitle } from '../../../shared/ui';
+import { Box } from '../../../shared/ui/basic/mui';
 import { StyledTitle } from '../styles';
 
 export const HistoryPage = () => (

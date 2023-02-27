@@ -13,7 +13,7 @@ import {
   ActionRequestCurrencyType,
   CurrencyPayloadSuccessType,
   ActionRequestHistoryType,
-} from 'entities/currency/lib';
+} from '../../../entities/currency/lib';
 import { getExchangeRate, getCurrencyHistory } from '../api';
 
 function* fetchCurrencyData(action: ActionRequestCurrencyType) {

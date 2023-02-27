@@ -4,12 +4,12 @@ import {
   CurrencyHistoryDataView,
   CurrencyRatingTable,
   CurrencyTableControls,
-} from 'entities/currency';
-import { currencyHistoryTableRatesSelector } from 'entities/currency/model';
+} from '../../../../entities/currency';
+import { currencyHistoryTableRatesSelector } from '../../../../entities/currency/model';
 
-import { FormattedSubtitle, FormattedText } from 'shared/ui';
+import { FormattedSubtitle, FormattedText } from '../../../../shared/ui';
 
-import { Box } from 'shared/ui/basic/mui';
+import { Box } from '../../../../shared/ui/basic/mui';
 
 const TablesContainer = styled(Box)`
   display: flex;

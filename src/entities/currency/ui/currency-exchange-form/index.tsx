@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { Controller, useForm } from 'react-hook-form';
-import { Button, Input } from 'shared/ui/basic';
-import { FormControl } from 'shared/ui/basic/mui';
-import { FormattedText, Icon } from 'shared/ui';
+import { Button, Input } from '../../../../shared/ui/basic';
+import { FormControl } from '../../../../shared/ui/basic/mui';
+import { FormattedText, Icon } from '../../../../shared/ui';
 import { useCurrencyData } from '../../lib/hooks';
 
 const StyledForm = styled.form`

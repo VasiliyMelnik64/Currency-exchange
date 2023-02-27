@@ -3,8 +3,8 @@ import { persistCombineReducers, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import storage from 'redux-persist/lib/storage';
 
-import { currencyModel } from 'entities/currency';
-import { errorMiddleware } from 'shared/model/middlewares';
+import { currencyModel } from '../../entities/currency';
+import { errorMiddleware } from '../model/middlewares';
 import { rootSaga } from './root-saga';
 
 const persistConfig = {

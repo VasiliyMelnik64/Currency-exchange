@@ -1,7 +1,9 @@
 import { useCallback, useState, useEffect, useRef } from 'react';
 import { useTheme } from 'styled-components';
 import { useSelector } from 'react-redux';
-import { exchangeRateSelector } from 'entities/currency/model';
+import { useNavigate } from 'react-router-dom';
+
+import { exchangeRateSelector } from '../../../../entities/currency/model';
 import {
   Table,
   TableBody,
@@ -11,13 +13,11 @@ import {
   TableContainer,
   Paper,
   Box,
-} from 'shared/ui/basic/mui';
-
-import { userSearchHistoryTableHead } from 'entities/history/config';
-import { formatDateForUserSearchHistoryTable } from 'entities/currency/lib';
-import { useCurrencyData } from 'entities/currency/lib/hooks';
-import { FormattedText, Icon } from 'shared/ui';
-import { useNavigate } from 'react-router-dom';
+} from '../../../../shared/ui/basic/mui';
+import { userSearchHistoryTableHead } from '../../../../entities/history/config';
+import { formatDateForUserSearchHistoryTable } from '../../../../entities/currency/lib';
+import { useCurrencyData } from '../../../../entities/currency/lib/hooks';
+import { FormattedText, Icon } from '../../../../shared/ui';
 
 export const UserSearchHistoryTable = () => {
   const [activeIndex, setActiveIndex] = useState(-1);

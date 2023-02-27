@@ -1,8 +1,12 @@
 import { Fragment } from 'react';
 import { useTheme } from 'styled-components';
 
-import { FormattedText, FormattedTitle, FormattedNumber } from 'shared/ui';
-import { Box } from 'shared/ui/basic/mui';
+import {
+  FormattedText,
+  FormattedTitle,
+  FormattedNumber,
+} from '../../../../shared/ui';
+import { Box } from '../../../../shared/ui/basic/mui';
 import { useCurrencyData } from '../../lib/hooks';
 
 export const CurrencyInfoView = () => {

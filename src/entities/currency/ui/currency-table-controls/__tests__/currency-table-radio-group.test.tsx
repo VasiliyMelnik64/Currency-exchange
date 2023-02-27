@@ -1,4 +1,4 @@
-import { Wrapper, getInnerHTML } from 'shared/lib/utils/testing';
+import { Wrapper, getInnerHTML } from '../../../../../shared/lib/utils/testing';
 import { CurrencyTableRadioGroup } from '../currency-table-radio-group';
 
 describe('CurrencyTableRadioGroup', () => {

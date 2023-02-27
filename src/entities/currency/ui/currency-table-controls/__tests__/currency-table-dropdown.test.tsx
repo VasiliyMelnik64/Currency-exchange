@@ -1,4 +1,4 @@
-import { Wrapper, getInnerHTML } from 'shared/lib/utils/testing';
+import { Wrapper, getInnerHTML } from '../../../../../shared/lib/utils/testing';
 import { CurrencyTableDropdown } from '../currency-table-dropdown';
 
 describe('CurrencyTableDropdown', () => {

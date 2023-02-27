@@ -1,6 +1,6 @@
-import { Routing } from 'pages';
+import { Routing } from '../pages';
 
-import { withProviders } from 'app/providers';
+import { withProviders } from './providers';
 
 const App = () => {
   return <Routing />;

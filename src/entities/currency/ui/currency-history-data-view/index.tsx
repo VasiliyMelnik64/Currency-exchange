@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { currencyHistoryViewVariantSelector } from 'entities/currency/model';
-import { CurrencyHistoryViewVariant } from 'entities/currency/lib';
-import { Box } from 'shared/ui/basic/mui';
+import { currencyHistoryViewVariantSelector } from '../../../../entities/currency/model';
+import { CurrencyHistoryViewVariant } from '../../../../entities/currency/lib';
+import { Box } from '../../../../shared/ui/basic/mui';
 
 import { CurrencyHistoryTable } from '../currency-history-table';
 import { CurrencyHistoryChart } from '../currency-history-chart';

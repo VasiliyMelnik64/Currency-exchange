@@ -1,4 +1,7 @@
-import { CurrencyExchangeForm, CurrencyInfoView } from 'entities/currency';
+import {
+  CurrencyExchangeForm,
+  CurrencyInfoView,
+} from '../../../../entities/currency';
 
 export const CurrencyExchangeWidget = () => {
   return (
